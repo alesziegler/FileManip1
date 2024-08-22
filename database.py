@@ -15,7 +15,8 @@ class Database:
     return self.entries
 
   def save(self):
-    pass
+    with open(self.file,"a"):
+      self.file.write("something")
 
   def load(self):
     pass
