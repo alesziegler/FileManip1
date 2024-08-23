@@ -17,6 +17,7 @@ class Database:
   def save(self):
     with open(self.file,"a"):
       self.file.write("something")
+    
 
   def load(self):
     pass

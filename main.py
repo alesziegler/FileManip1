@@ -1,19 +1,22 @@
 from entry import Entry as entry
-from database import Database as database
+from database import Database #as database
 from interface import Interface #as interface
 from file_creation import FileCreation
 
 
 print("Hello")
-"""
-file1 = open("test1.txt","w")
-file1.write("something")
-file1.close()
-"""
+
 FileCreation("test")
 
 FileCreation("test2")
 
+with open("test.txt", "a") as f:
+  f.write("\n somethin else")
+
+"""
+database_test = Database("/test.txt")
+database_test.save()
+"""
 Interface()
 
 
