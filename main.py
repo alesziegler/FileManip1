@@ -10,6 +10,11 @@ FileCreation("test")
 
 FileCreation("test2")
 
+#ok, we need to integrate class database in a way that its instance can handle file openings
+"""
+database_test = Database("test.txt")
+database_test.save()
+"""
 with open("test.txt", "a") as f:
   f.write("\n somethin else")
 
