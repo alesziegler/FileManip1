@@ -1,8 +1,8 @@
 
 class FileCreation:
 
-  def __init__(self,file_name):
-    self.file = file_name + ".txt"
+  def __init__(self,file_name,file_suffix):
+    self.file = file_name + "." + file_suffix
     try:
       file = open(self.file,"x")
       file.close()

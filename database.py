@@ -15,6 +15,17 @@ class Database:
     return self.entries
 
   def save(self):
+    """
+    ok, we need to make sure that file exists and is csv:
+    import os.path
+    if os.path.isfile(self.file):
+      if self.file.endswith(".csv"):
+        ...
+      else:
+        print("is not csv")
+    else:
+    print("is not file")
+    """
     with open(self.file,"a") as x:
       x.write("something2")
     
