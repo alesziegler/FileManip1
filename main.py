@@ -14,6 +14,8 @@ FileCreation("test2","txt")
 
 FileCreation("test5","csv")
 
+database_integrated = Database(FileCreation("test6","csv"))
+
 database_test = Database("test5.csv")
 database_test.save_to_csv()
 database_test.save("\n this is a new text")
@@ -26,6 +28,6 @@ with open("test.txt", "a") as f:
 database_test = Database("/test.txt")
 database_test.save()
 """
-Interface()
+#Interface()
 
 

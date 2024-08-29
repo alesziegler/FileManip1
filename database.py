@@ -7,9 +7,10 @@ class Database:
   entries = []
 
   def __init__(self, file):
+    #can file directli initialize FileCreation?
     self.file = file
 
-  def add_entry(self, name,age,date):
+  def add_entry(self,name,age,date):
     e = Entry(name,age,date)
     self.entries.append(e)
 
@@ -39,7 +40,7 @@ class Database:
       print("ok")
       if self.file.endswith(".csv"):
         print("ok")
-        with open(self.file, "a", encoding "utf-8") as f:
+        with open(self.file, "a", encoding = "utf-8") as f:
           for e in self.entries:
             values = [e.name, str(e.age), e.date.strftime("%d.%m.%Y")]
             line = ";".join(values)

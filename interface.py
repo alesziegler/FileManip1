@@ -1,7 +1,9 @@
 class Interface:
   welcome = "this will be a menu"
 
-  def __init__(self): #maybe get another class as a parameter?
+  def __init__(self,database): #maybe get another class as a parameter?
+    self.database = database
+    self.database.file = ""
     self.menu()
 
   def menu(self):
@@ -27,6 +29,7 @@ class Interface:
       match choice:
         case 1:
           print("s")
+          self.saving()
         case 2:
           print(2)
         case 3:
@@ -36,3 +39,13 @@ class Interface:
           done = True
         case _:
           print("invalid choice")
+
+  def saving(self):
+    name = input("Pick a name: ")
+    age = input("Pick an age: ")
+    date = input("Pick a date: ")
+    #ok, how to connect database with file here?
+    #what about FileCreation? Probably each database should create one file,
+    #so file creation should be connected with Database class?
+    self.database.add_entry(name,age,date)
+    
