@@ -14,7 +14,7 @@ class Database:
   def return_all(self):
     return self.entries
 
-  def save(self):
+  def save(self,new_text):
     """
     ok, we need to make sure that file exists and is csv:
     import os.path
@@ -27,7 +27,7 @@ class Database:
     print("is not file")
     """
     with open(self.file,"a") as x:
-      x.write("something2")
+      x.write(new_text)
     
 
   def load(self):
