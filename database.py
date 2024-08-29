@@ -11,6 +11,10 @@ class Database:
     self.file = file
 
   def add_entry(self,name,age,date):
+    """
+    for now use of this method can be suspended.
+    Instead of through a list, saving will be directly to a file.
+    """
     e = Entry(name,age,date)
     self.entries.append(e)
 
@@ -22,7 +26,7 @@ class Database:
     with open(self.file,"a") as x:
       x.write(new_text)
 
-  def save_to_csv(self):
+  def save_through_entries(self):
     """
     ok, we need to make sure that file exists and is csv:
     import os.path
@@ -48,6 +52,18 @@ class Database:
             
       else:
         print("this is not a csv")
+
+  def save_to_csv(self, name, age, date):
+    if not os.path.isfile(self.file):
+      print("not file")
+    else:
+      print("ok")
+      if self.file.endswith(".csv"):
+        print("ok")
+        with open(self.file, "a", encoding = "utf-8") as f:
+          values = [name,age,date]
+          line = ";".join(values)
+          f.write(line + "\n")
     
 
   def load(self):

@@ -6,6 +6,10 @@ from file_creation import FileCreation
 
 print("Hello")
 
+database_foreal = Database(FileCreation("lets_roll","csv"))
+
+Interface(database_foreal)
+
 FileCreation("test","txt")
 
 FileCreation("test2","txt")
