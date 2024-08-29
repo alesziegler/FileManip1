@@ -1,10 +1,10 @@
 class Entry:
   content = "something"
 
-  def __init__(self,name, property1, property2):
+  def __init__(self,name,age,date):
     self.name = name
-    self.property1 = property1
-    self.property2 = property2
+    self.age = age
+    self.date = date
 
   def __str__(self):
     return self.name

@@ -1,7 +1,7 @@
 class Interface:
   welcome = "this will be a menu"
 
-  def __init__(self):
+  def __init__(self): #maybe get another class as a parameter?
     self.menu()
 
   def menu(self):
@@ -12,9 +12,8 @@ class Interface:
       print('''
           1) add entry to the database.
           2) show the whole database.
-          3) save.
-          4) load.
-          5) quit.
+          3) load.
+          4) quit.
         ''')
       choice = input("Pick what do you want to do: ")
 
@@ -33,8 +32,6 @@ class Interface:
         case 3:
           print(3)
         case 4:
-          print(4)
-        case 5:
           print("bye")
           done = True
         case _:

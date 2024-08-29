@@ -9,8 +9,8 @@ class Database:
   def __init__(self, file):
     self.file = file
 
-  def add_entry(self, name, property1, property2):
-    e = Entry(name, property1, property2)
+  def add_entry(self, name,age,date):
+    e = Entry(name,age,date)
     self.entries.append(e)
 
   def return_all(self):
@@ -39,6 +39,12 @@ class Database:
       print("ok")
       if self.file.endswith(".csv"):
         print("ok")
+        with open(self.file, "a", encoding "utf-8") as f:
+          for e in self.entries:
+            values = [e.name, str(e.age), e.date.strftime("%d.%m.%Y")]
+            line = ";".join(values)
+            f.write(line + "\n")
+            
       else:
         print("this is not a csv")
     
