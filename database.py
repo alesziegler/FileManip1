@@ -7,7 +7,7 @@ class Database:
   entries = []
 
   def __init__(self, file):
-    #can file directli initialize FileCreation?
+    #can file directly initialize FileCreation?
     self.file = file
 
   def add_entry(self,name,age,date):
@@ -54,6 +54,9 @@ class Database:
         print("this is not a csv")
 
   def save_to_csv(self, name, age, date):
+    print("launch")
+    print(name + age + date)
+    print("we are here")
     if not os.path.isfile(self.file):
       print("not file")
     else:

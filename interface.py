@@ -48,4 +48,6 @@ class Interface:
     #what about FileCreation? Probably each database should create one file,
     #so file creation should be connected with Database class?
     self.database.save_to_csv(name,age,date)
+    print(name + age + date)
+    self.menu()
     

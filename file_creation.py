@@ -8,3 +8,9 @@ class FileCreation:
       file.close()
     except FileExistsError:
       print("File already exists")
+    self.output()
+
+  def output(self):
+    return self.file
+    
+    
