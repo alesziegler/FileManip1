@@ -6,9 +6,13 @@ class Database:
   
   entries = []
 
+  test = "dtest"
+
   def __init__(self, file):
     #can file directly initialize FileCreation?
     self.file = file
+    print(self.file)
+    print(os.path.isfile(self.file))
 
   def add_entry(self,name,age,date):
     """
@@ -38,15 +42,19 @@ class Database:
     else:
     print("is not file")
     """
+    print("here1")
+    print(self.file)
+    print("here2")
     if not os.path.isfile(self.file):
+      print(os.path.isfile(self.file))
       print("not file")
     else:
       print("ok")
       if self.file.endswith(".csv"):
         print("ok")
-        with open(self.file, "a", encoding = "utf-8") as f:
+        with open(self.file, "w", encoding = "utf-8") as f:
           for e in self.entries:
-            values = [e.name, str(e.age), e.date.strftime("%d.%m.%Y")]
+            values = [e.name, str(e.age), e.date]
             line = ";".join(values)
             f.write(line + "\n")
             
@@ -55,19 +63,23 @@ class Database:
 
   def save_to_csv(self, name, age, date):
     print("launch")
+    """
     print(name + age + date)
     print("we are here")
+    print(self.file)
     if not os.path.isfile(self.file):
       print("not file")
+      print(os.path.isfile(self.file))
     else:
       print("ok")
       if self.file.endswith(".csv"):
         print("ok")
-        with open(self.file, "a", encoding = "utf-8") as f:
-          values = [name,age,date]
-          line = ";".join(values)
-          f.write(line + "\n")
-    
+        """
+    with open(self.file, "a", encoding = "utf-8") as f:
+      values = [name,age,date]
+      line = ";".join(values)
+      f.write(line + "\n")
+
 
   def load(self):
     pass
