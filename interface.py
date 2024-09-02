@@ -1,9 +1,8 @@
 class Interface:
   welcome = "this will be a menu"
 
-  def __init__(self,database): #maybe get another class as a parameter?
+  def __init__(self,database):
     self.database = database
-    #self.database.file = ""this is problematic
     self.menu()
 
   def menu(self):
@@ -44,12 +43,7 @@ class Interface:
     name = input("Pick a name: ")
     age = input("Pick an age: ")
     date = input("Pick a date: ")
-    #ok, how to connect database with file here?
-    #what about FileCreation? Probably each database should create one file,
-    #so file creation should be connected with Database class?
-    #ok, our approach doesn't work.
-    #maybe we need to have two methods - ad entry and save to csv?
-
+    
     self.database.add_entry(name,age,date)
     print(self.database.test)
     print(self.database.entries)
