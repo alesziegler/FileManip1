@@ -3,14 +3,19 @@ class FileCreation:
 
   def __init__(self,file_name,file_suffix):
     self.file = file_name + "." + file_suffix
+    self.output()
+
+  def output(self):
     try:
       file = open(self.file,"x")
       file.close()
+      return self.file
     except FileExistsError:
-      print("File already exists")
-    self.output()
+      print("File already exists1")
+      return FileExistsError
+   
 
-  def output(self): #is this needed?
-    return self.file
+  
+    
     
     

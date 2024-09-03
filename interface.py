@@ -1,8 +1,9 @@
-class Interface:
-  welcome = "this will be a menu"
+from database import Database
 
-  def __init__(self,database):
-    self.database = database
+class Interface:
+  
+  def __init__(self):
+    #self.database = database
     self.menu()
 
   def menu(self):
@@ -11,7 +12,8 @@ class Interface:
     while not done:
 
       print('''
-          1) add entry to the database.
+          1) add a new csv file.
+          2) add entry to an existing csv file.
           2) show the whole database.
           3) load.
           4) quit.
@@ -24,11 +26,10 @@ class Interface:
         print("invalid choice")
         continue
         
-
       match choice:
         case 1:
           print("s")
-          self.saving()
+          self.saving_to_new_file()
         case 2:
           print(2)
         case 3:
@@ -39,7 +40,16 @@ class Interface:
         case _:
           print("invalid choice")
 
-  def saving(self):
+  def saving_to_new_file(self):
+    filename = input("Pick a filename: ")
+    new_database = Database(1,filename)
+    """
+    When file already exists,
+    error needs to go through 3 levels:
+    1) FileCreation raises error,
+    2) error is then passed to Database,
+    3) then it is passed to an Interface.
+    """
     name = input("Pick a name: ")
     age = input("Pick an age: ")
     date = input("Pick a date: ")

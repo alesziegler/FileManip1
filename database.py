@@ -1,18 +1,35 @@
 from entry import Entry
+from file_creation import FileCreation
 import os.path
 
 class Database:
-
+  """
+  This class needs to be reworked:
+  1) There will be one method starting a new file.
+  2) another method continuing existing file.
+  """
   
   entries = []
 
-  test = "dtest"
+  
 
-  def __init__(self, file):
+  def __init__(self, option, filename = None):
     #can file directly initialize FileCreation?
-    self.file = file
-    print(self.file)
-    print(os.path.isfile(self.file))
+    #self.option = option
+    self.__filename = filename
+    match option:
+      case 1:
+        self.create_new_file()
+      case 2:
+        pass
+    #print(self.file)
+    #print(os.path.isfile(self.file))
+
+  def create_new_file(self):
+    try:
+      new_file = FileCreation(self.__filename,"csv")
+    except FileExistsError:
+      raise Exception("file already exists3")
 
   def add_entry(self,name,age,date):
     """

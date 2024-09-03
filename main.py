@@ -13,6 +13,6 @@ one session, but by next session, file is rewritten.
 So we need 
 """
 
-Interface(Database("lets_roll.csv"))
+Interface()
 
 
