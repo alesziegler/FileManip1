@@ -1,6 +1,8 @@
 
 class FileCreation:
 
+  error_message = "File already exists0"
+
   def __init__(self,file_name,file_suffix):
     self.file = file_name + "." + file_suffix
     self.output()
@@ -12,7 +14,7 @@ class FileCreation:
       return self.file
     except FileExistsError:
       print("File already exists1")
-      return FileExistsError
+      raise FileExistsError("n;d")
    
 
   
