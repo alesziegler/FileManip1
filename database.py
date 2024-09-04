@@ -26,12 +26,12 @@ class Database:
     #print(os.path.isfile(self.file))
 
   def create_new_file(self):
-    print("here")
+    
     try:
       new_file = FileCreation(self.__filename,"csv")
-    except FileExistsError as x:
-      print(x)
-      print("file already exists2")
+    except Exception as error_message:
+      #print(x)
+      raise Exception(error_message)
       #raise Exception("file already exists3")
 
   def add_entry(self,name,age,date):

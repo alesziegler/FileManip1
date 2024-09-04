@@ -8,13 +8,13 @@ class FileCreation:
     self.output()
 
   def output(self):
+    #m = "File already exists"
     try:
       file = open(self.file,"x")
       file.close()
       return self.file
-    except FileExistsError:
-      print("File already exists1")
-      raise FileExistsError("n;d")
+    except FileExistsError:     
+      raise FileExistsError("File already exists")
    
 
   

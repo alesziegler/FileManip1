@@ -42,14 +42,17 @@ class Interface:
 
   def saving_to_new_file(self):
     filename = input("Pick a filename: ")
-    new_database = Database(1,filename)
+    try:
+      new_database = Database(1,filename)
+    except Exception as error_message:
+      print(error_message)
     """
     When file already exists,
     error needs to go through 3 levels:
     1) FileCreation raises error,
     2) error is then passed to Database,
     3) then it is passed to an Interface.
-    """
+    
     name = input("Pick a name: ")
     age = input("Pick an age: ")
     date = input("Pick a date: ")
@@ -60,4 +63,4 @@ class Interface:
     self.database.save_through_entries()
     #print(name + age + date)
     self.menu()
-    
+    """
