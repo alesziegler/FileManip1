@@ -27,7 +27,8 @@ class Database:
   def create_new_file(self):
     
     try:
-      new_file = FileCreation(self.__filename,"csv")
+      new_file = self.__path + self.__filename
+      FileCreation(new_file,"csv")
     except Exception as error_message:
       raise Exception(error_message)
       
@@ -43,13 +44,22 @@ class Database:
     print("launch")
     print(name + age + date)
     print(self.__filename) #it is recognized as a string, not as a file?
-    file = self.__filename + ".csv"
+    file = self.__path + self.__filename + ".csv"
     print(os.path.isfile(self.__filename))
     print(os.path.isfile(file))
     with open(file,"a",encoding = "utf-8") as f:
       values = [name,age,date]
       line = ";".join(values)
       f.write(line + "\n")
+
+  @property
+  def filename(self):
+    return self.__filename
+  
+  @filename.setter
+  def filename(self,f):
+    self.__filename = f
+    
     """
     with open(self.__filename + ".csv", "a") as f:
       values = ["fq","dq","fdf"]
