@@ -32,6 +32,7 @@ class Interface:
           self.saving_to_new_file()
         case 2:
           print(2)
+          self.saving_to_existing_file()
         case 3:
           print(3)
         case 4:
@@ -54,6 +55,10 @@ class Interface:
     
     except Exception as error_message:
       print(error_message)
+
+  def saving_to_existing_file(self):
+    old_database = Database(2)
+    print(old_database.find_existing_files())
     """
     When file already exists,
     error needs to go through 3 levels:

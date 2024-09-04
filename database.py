@@ -1,6 +1,6 @@
 from entry import Entry
 from file_creation import FileCreation
-import os.path
+import os
 
 class Database:
   """
@@ -11,12 +11,11 @@ class Database:
   
   entries = []
 
-  
-
   def __init__(self, option, filename = None):
     #can file directly initialize FileCreation?
     #self.option = option
     self.__filename = filename
+    self.__path = "Data container"
     match option:
       case 1:
         self.create_new_file()
@@ -30,9 +29,15 @@ class Database:
     try:
       new_file = FileCreation(self.__filename,"csv")
     except Exception as error_message:
-      #print(x)
       raise Exception(error_message)
-      #raise Exception("file already exists3")
+      
+  def find_existing_files(self):
+    #path = "/Data container"
+    result =""
+    for file in os.listdir(self.__path):
+      if file.endswith(".csv"):
+        result += file + "\n"
+    return result
 
   def save_to_csv(self, name, age, date):
     print("launch")
