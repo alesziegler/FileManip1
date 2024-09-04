@@ -44,6 +44,14 @@ class Interface:
     filename = input("Pick a filename: ")
     try:
       new_database = Database(1,filename)
+      
+      name = input("Pick a name: ")
+      age = input("Pick an age: ")
+      date = input("Pick a date: ")
+
+      #now initialize addition method od database object.
+      new_database.save_to_csv(name,age,date)
+    
     except Exception as error_message:
       print(error_message)
     """

@@ -34,6 +34,40 @@ class Database:
       raise Exception(error_message)
       #raise Exception("file already exists3")
 
+  def save_to_csv(self, name, age, date):
+    print("launch")
+    print(name + age + date)
+    print(self.__filename) #it is recognized as a string, not as a file?
+    file = self.__filename + ".csv"
+    print(os.path.isfile(self.__filename))
+    print(os.path.isfile(file))
+    with open(file,"a",encoding = "utf-8") as f:
+      values = [name,age,date]
+      line = ";".join(values)
+      f.write(line + "\n")
+    """
+    with open(self.__filename + ".csv", "a") as f:
+      values = ["fq","dq","fdf"]
+      line = ";".join(values)
+      f.write(line + "\n")
+    
+    
+    print(name + age + date)
+    print("we are here")
+    print(self.file)
+    if not os.path.isfile(self.file):
+      print("not file")
+      print(os.path.isfile(self.file))
+    else:
+      print("ok")
+      if self.file.endswith(".csv"):
+        print("ok")
+        
+    with open(self.__filename,"a", encoding = "utf-8") as f:
+      values = [name,age,date]
+      line = ";".join(values)
+      f.write(line + "\n")
+  """
   def add_entry(self,name,age,date):
     """
     for now use of this method can be suspended.
@@ -81,24 +115,7 @@ class Database:
       else:
         print("this is not a csv")
 
-  def save_to_csv(self, name, age, date):
-    print("launch")
-    """
-    print(name + age + date)
-    print("we are here")
-    print(self.file)
-    if not os.path.isfile(self.file):
-      print("not file")
-      print(os.path.isfile(self.file))
-    else:
-      print("ok")
-      if self.file.endswith(".csv"):
-        print("ok")
-        """
-    with open(self.file, "a", encoding = "utf-8") as f:
-      values = [name,age,date]
-      line = ";".join(values)
-      f.write(line + "\n")
+  
 
 
   def load(self):
