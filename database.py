@@ -27,7 +27,7 @@ class Database:
   def create_new_file(self):
     
     try:
-      new_file = self.__path +"/" + self.__filename
+      new_file = self.__path + "/" + self.__filename
       FileCreation(new_file,"csv")
     except Exception as error_message:
       raise Exception(error_message)
@@ -48,7 +48,7 @@ class Database:
     print(os.path.isfile(self.__filename))
     print(os.path.isfile(file))
     with open(file,"a",encoding = "utf-8") as f:
-      values = [name,age,date]
+      values = [name.replace(";", " "),age.replace(";", " "),date.replace(";", " ")]
       line = ";".join(values)
       f.write(line + "\n")
 
