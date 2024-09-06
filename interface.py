@@ -29,13 +29,11 @@ class Interface:
 
       match choice:
         case 1:
-          print("s")
           self.saving_to_new_file()
         case 2:
-          print(2)
           self.saving_to_existing_file()
         case 3:
-          print(3)
+          print("not implemented")
         case 4:
           print("bye")
           done = True
@@ -50,8 +48,6 @@ class Interface:
       name = input("Pick a name: ")
       age = input("Pick an age: ")
       date = input("Pick a date: ")
-
-      #now initialize addition method od database object.
       
       new_database.save_to_csv(name, age, date)
 
@@ -63,12 +59,11 @@ class Interface:
     print("There are following files: ")
     print(old_database.find_existing_files())
 
-    #here should be a mechanism for picking a file. We need a setter?
     target_file = input(
-    """
-    Write a name of the file to which you 
-    wish to save from the list above (without".csv"): 
-    """)
+  """
+  Write a name of the file to which you 
+  wish to save from the list above: 
+  """)
 
     print(old_database.filename)
 
@@ -81,21 +76,4 @@ class Interface:
     date = input("Pick a date: ")
 
     old_database.save_to_csv(name, age, date)
-    """
-    When file already exists,
-    error needs to go through 3 levels:
-    1) FileCreation raises error,
-    2) error is then passed to Database,
-    3) then it is passed to an Interface.
     
-    name = input("Pick a name: ")
-    age = input("Pick an age: ")
-    date = input("Pick a date: ")
-    
-    self.database.add_entry(name,age,date)
-    print(self.database.test)
-    print(self.database.entries)
-    self.database.save_through_entries()
-    #print(name + age + date)
-    self.menu()
-    """
